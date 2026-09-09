@@ -1,3 +1,7 @@
 streamlit>=1.32.0
 faster-whisper
+fastapi
+uvicorn
+python-multipart
 pytest
+httpx
