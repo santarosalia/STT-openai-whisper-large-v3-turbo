@@ -1,0 +1,23 @@
+[project]
+name = "stt-openai-whisper-large-v3-turbo"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "faster-whisper",
+    "fastapi",
+    "python-multipart",
+    "streamlit>=1.32.0",
+    "uvicorn",
+]
+
+[dependency-groups]
+dev = [
+    "httpx",
+    "pytest",
+]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
