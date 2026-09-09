@@ -1,0 +1,15 @@
+services:
+  api:
+    build: .
+    image: ghcr.io/santarosalia/stt-openai-whisper-large-v3-turbo:latest
+    pull_policy: missing
+    ports:
+      - "8000:8000"
+    volumes:
+      - whisper-cache:/var/cache/huggingface
+    environment:
+      HF_HOME: /var/cache/huggingface
+    restart: unless-stopped
+
+volumes:
+  whisper-cache:
