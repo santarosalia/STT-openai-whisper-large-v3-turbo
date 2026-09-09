@@ -1,0 +1,11 @@
+.git
+.github
+.venv
+.pytest_cache
+.streamlit
+.cursor
+__pycache__
+*.pyc
+.DS_Store
+tests
+README.md

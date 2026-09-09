@@ -56,6 +56,26 @@ curl -X POST http://127.0.0.1:8000/transcribe \
 
 빈 파일은 `400`을 반환합니다.
 
+## Docker
+
+FastAPI 이미지를 로컬에서 빌드하려면:
+
+```bash
+docker build -t stt-api .
+docker run --rm -p 8000:8000 -v whisper-cache:/var/cache/huggingface stt-api
+```
+
+`main` 브랜치에 푸시하면 GitHub Actions가 이미지를 GHCR에 올립니다.
+
+```bash
+docker pull ghcr.io/santarosalia/stt-openai-whisper-large-v3-turbo:latest
+docker run --rm -p 8000:8000 \
+  -v whisper-cache:/var/cache/huggingface \
+  ghcr.io/santarosalia/stt-openai-whisper-large-v3-turbo:latest
+```
+
+저장소 이름이 대문자를 포함하므로 GHCR 이미지 이름은 소문자입니다. 패키지가 안 보이면 GitHub 저장소의 **Packages**에서 해당 패키지 공개 여부를 확인하세요.
+
 ## 테스트
 
 ```bash
